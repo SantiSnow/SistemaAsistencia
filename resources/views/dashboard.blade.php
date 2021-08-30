@@ -14,4 +14,29 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ultimo ingreso</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Departamento</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                @foreach($ultimos_ingresos as $ultimo_ingreso)
+                    <th scope="row">{{ $ultimo_ingreso->id }}</th>
+                    <td>{{ $ultimo_ingreso }}</td>
+                    <td>{{ $ultimo_ingreso->user->name }}</td>
+                    <td>{{ $ultimo_ingreso->user->email }}</td>
+                    <td>{{ $ultimo_ingreso->user->departamento->nombre }}</td>
+                @endforeach
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </x-app-layout>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Ingreso;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $ultimos_ingresos = Ingreso::all();
+    return view('dashboard', compact('ultimos_ingresos'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
