@@ -16,6 +16,8 @@ class CreateIngresosTable extends Migration
         Schema::create('ingresos', function (Blueprint $table) {
             $table->id();
             $table->dateTime('ultimo_ingreso', $precision = 0);
+            $table->double('temperatura');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
