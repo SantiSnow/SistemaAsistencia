@@ -21,6 +21,7 @@ class CreateUsuariosTable extends Migration
             $table->string('telefono');
             $table->string('descripcion');
             $table->integer('departamento_id');
+            $table->string('campo_identificador');
             $table->timestamps();
         });
     }

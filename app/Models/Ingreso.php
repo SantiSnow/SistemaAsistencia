@@ -15,8 +15,8 @@ class Ingreso extends Model
         'user_id',
     ];
 
-    public function user()
+    public function usuario()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Usuario::class);
     }
 }

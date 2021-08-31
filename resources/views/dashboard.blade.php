@@ -17,11 +17,7 @@
                 <form action="{{ url('/nuevo-ingreso') }}" method="post" class="form-group">
                     @csrf
                     <label for="user">Usuario</label>
-                    <select name="user" id="" class="form-control" required>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->nombre }}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" name="user" class="form-control" placeholder="Codigo identificador" id="">
                     <br />
 
                     <label for="temperatura">Temperatura</label>
@@ -56,17 +52,15 @@
                     <th scope="col">Ultimo ingreso</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Departamento</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     @foreach($ultimos_ingresos as $ultimo_ingreso)
                         <th scope="row">{{ $ultimo_ingreso->id }}</th>
-                        <td>{{ $ultimo_ingreso }}</td>
-                        <td>{{ $ultimo_ingreso->user->name }}</td>
-                        <td>{{ $ultimo_ingreso->user->email }}</td>
-                        <td>{{ $ultimo_ingreso->user->departamento->nombre }}</td>
+                        <td>{{ $ultimo_ingreso->ultimo_ingreso }}</td>
+                        <td>{{ $ultimo_ingreso->usuario->nombre }}</td>
+                        <td>{{ $ultimo_ingreso->usuario->email }}</td>
                     @endforeach
                 </tr>
                 </tbody>

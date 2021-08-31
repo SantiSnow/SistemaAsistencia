@@ -16,6 +16,7 @@ class Usuario extends Model
         'telefono',
         'descripcion',
         'departamento_id',
+        'campo_identificador',
     ];
 
     public function ingresos()

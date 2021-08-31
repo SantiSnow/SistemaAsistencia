@@ -17,7 +17,7 @@ class CreateIngresosTable extends Migration
             $table->id();
             $table->dateTime('ultimo_ingreso', $precision = 0);
             $table->double('temperatura');
-            $table->integer('user_id');
+            $table->integer('usuario_id');
             $table->timestamps();
         });
     }
