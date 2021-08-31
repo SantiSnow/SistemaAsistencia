@@ -18,4 +18,19 @@ class Usuario extends Model
         'departamento_id',
     ];
 
+    public function ingresos()
+    {
+        return $this->hasMany(Ingreso::class);
+    }
+
+    public function salidas()
+    {
+        return $this->hasMany(Salida::class);
+    }
+
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class);
+    }
+
 }

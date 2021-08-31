@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Ingreso;
+use App\Models\Usuario;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,11 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $ultimos_ingresos = Ingreso::all();
-    return view('dashboard', compact('ultimos_ingresos'));
+    $users = Usuario::all();
+    return view('dashboard', compact('ultimos_ingresos'), compact('users'));
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::post('/nuevo-ingreso', [Controller::class, 'nuevo_ingreso'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
