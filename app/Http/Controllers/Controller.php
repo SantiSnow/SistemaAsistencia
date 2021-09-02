@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingreso;
+use App\Models\Salida;
 use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -27,5 +28,22 @@ class Controller extends BaseController
         $ingreso->save();
 
         return redirect('/dashboard');
+    }
+
+    public function nueva_salida(Request $request){
+        $user = Usuario::where('campo_identificador', $request->get('user'))->first();
+
+        $salida = new Salida();
+        $salida->ultimo_egreso = $request->get('fecha_hora');
+        $salida->usuario_id = $user->id;
+
+        $salida->save();
+
+        return redirect('/salidas');
+    }
+
+    public function salidas(){
+        $salidas = Salida::all();
+        return view('salidas', compact('salidas'));
     }
 }

@@ -10,12 +10,12 @@ class Salida extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ultimo_ingreso',
-        'user_id',
+        'ultimo_egreso',
+        'usuario_id',
     ];
 
-    public function user()
+    public function usuario()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Usuario::class);
     }
 }

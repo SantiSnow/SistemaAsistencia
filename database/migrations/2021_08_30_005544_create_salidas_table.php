@@ -15,6 +15,8 @@ class CreateSalidasTable extends Migration
     {
         Schema::create('salidas', function (Blueprint $table) {
             $table->id();
+            $table->integer('usuario_id');
+            $table->dateTime('ultimo_egreso', $precision = 0);
             $table->timestamps();
         });
     }

@@ -29,4 +29,9 @@ Route::get('/dashboard', function () {
 
 Route::post('/nuevo-ingreso', [Controller::class, 'nuevo_ingreso'])->middleware(['auth']);
 
+Route::get('/salidas', [Controller::class, 'salidas'])->middleware(['auth']);
+
+Route::post('/nueva-salida', [Controller::class, 'nueva_salida'])->middleware(['auth']);
+
+
 require __DIR__.'/auth.php';

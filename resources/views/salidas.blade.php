@@ -9,22 +9,18 @@
 
     <div class="container">
         <div class="row">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Nuevo ingreso: </h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Nueva salida: </h2>
         </div>
         <br />
         <div class="row">
             <div class="col-md-6">
-                <form action="{{ url('/nuevo-ingreso') }}" method="post" class="form-group">
+                <form action="{{ url('/nueva-salida') }}" method="post" class="form-group">
                     @csrf
                     <label for="user">Usuario</label>
                     <input type="text" name="user" class="form-control" placeholder="Codigo identificador" id="">
                     <br />
 
-                    <label for="temperatura">Temperatura</label>
-                    <input type="number" name="temperatura" step=".01" id="" class="form-control" required>
-                    <br />
-
-                    <label for="fecha_hora">Fecha del ingreso</label>
+                    <label for="fecha_hora">Fecha de salida</label>
                     <input type="datetime-local" name="fecha_hora" step=".01" id="" class="form-control" required>
                     <br />
 
@@ -39,7 +35,7 @@
 
     <div class="container">
         <div class="row">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Tabla de ingresos: </h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Tabla de salidas: </h2>
         </div>
     </div>
 
@@ -49,22 +45,20 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Ultimo ingreso</th>
+                    <th scope="col">Ultima salida</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Usuario ID</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($ultimos_ingresos as $ultimo_ingreso)
-                        <tr>
-                            <th scope="row">{{ $ultimo_ingreso->id }}</th>
-                            <td>{{ $ultimo_ingreso->ultimo_ingreso }}</td>
-                            <td>{{ $ultimo_ingreso->usuario->nombre }}</td>
-                            <td>{{ $ultimo_ingreso->usuario->email }}</td>
-                            <td>{{ $ultimo_ingreso->usuario->campo_identificador }}</td>
-                        </tr>
-                    @endforeach
+                @foreach($salidas as $salida)
+                    <tr>
+                        <th scope="row">{{ $salida->id }}</th>
+                        <td>{{ $salida->ultimo_egreso }}</td>
+                        <td>{{ $salida->usuario->nombre }}</td>
+                        <td>{{ $salida->usuario->email }}</td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
